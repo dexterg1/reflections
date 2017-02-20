@@ -18,10 +18,7 @@ case object Z extends Axis { override val name = "Z-Axis" }
 
 
 case class Matrix private(val rows: Seq[Seq[Int]]){
-
-
-
-  def * (translationMatrix: Matrix): Option[Matrix]
+  def * (translationMatrix: Matrix): Option[Matrix] = None
 }
 
 //trait TranslationMatrix{

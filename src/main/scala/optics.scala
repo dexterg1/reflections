@@ -13,7 +13,7 @@ object Main extends App {
 
   val intersection = plane.intersection(vec)
 
-  println (s"Incident ${ray}  Reflected: ${plane.reflect(vec)} ")
+  println (s"Incident ${vec}  Reflected: ${plane.reflect(vec)} ")
 
 
 
