@@ -3,10 +3,10 @@ package models_v2
 case class Plane(pos: Point, dir: Vector) {
 
   def intersection(ray: Ray): Option[Point] = {
-    if( dir.dot(ray.vec.normal) == 0 ){
+    if( dir.dot(ray.vec.normalised) == 0 ){
       None
     }else{
-      val distance = (pos - ray.point).dot(dir.normal) / ray.vec.normal.dot(dir.normal)
+      val distance = (pos - ray.point).dot(dir.normalised) / ray.vec.normalised.dot(dir.normalised)
       Some(ray.extend(distance))
     }
   }
@@ -19,4 +19,8 @@ case class Plane(pos: Point, dir: Vector) {
     }
   }
 
+}
+
+object Plane{
+  def fromPointAndVector(point: Point, vector: Vector): Plane = Plane(point,vector.normalised)
 }
